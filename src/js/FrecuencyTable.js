@@ -199,6 +199,45 @@ export default class FrequencyTable {
 			}
 		};
 
+		// MEDIDAS DE DISPERSION
+		this.calculateClassifiedVariance = () => {
+			let sum = 0;
+			for (let i = 0; i < this.K; i++) {
+				sum += Math.pow(this.x[i], 2) * this.fi[i];
+			}
+			let mean = this.calculateClassifiedMean();
+			return ((sum / this.n) - Math.pow(mean, 2)).toFixed(2);
+		};
+
+		this.calculateUnclassifiedVariance = () => {
+			let sum = 0;
+			for (let i = 0; i < this.n; i++) {
+				sum += Math.pow(this.data[i], 2);
+			}
+			let mean = this.calculateUnclassifiedMean();
+			return ((sum / this.n) - Math.pow(mean, 2)).toFixed(2);
+		};
+
+		this.calculateClassifiedStandardDeviation = () => {
+			return Math.sqrt(this.calculateClassifiedVariance()).toFixed(2);
+		};
+
+		this.calculateUnclassifiedStandardDeviation = () => {
+			return Math.sqrt(this.calculateUnclassifiedVariance()).toFixed(2);
+		};
+
+		this.calculateClassifiedCoefficientOfVariation = () => {
+			let mean = this.calculateClassifiedMean();
+			let standardDeviation = this.calculateClassifiedStandardDeviation();
+			return ((standardDeviation / mean) * 100).toFixed(2) + "%";
+		};
+
+		this.calculateUnclassifiedCoefficientOfVariation = () => {
+			let mean = this.calculateUnclassifiedMean();
+			let standardDeviation = this.calculateUnclassifiedStandardDeviation();
+			return ((standardDeviation / mean) * 100).toFixed(2) + "%";
+		};
+
 	}
 
 

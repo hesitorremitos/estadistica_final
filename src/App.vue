@@ -58,6 +58,7 @@
   <div id="histograma"></div>
 
   <div v-if="frequencyTable">
+    <h4>Medidas de tendencia central</h4>
     <table class="table table-striped table-hover">
       <thead>
         <tr>
@@ -108,6 +109,40 @@
       </tbody>
 
     </table>
+  </div>
+  <br>
+  <div>
+    <h4>Medidas de dispercion o variabilidad</h4>
+    <div v-if="frequencyTable">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Clasificados</th>
+            <th>No Clasificados</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Varianza</td>
+            <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedVariance() }}</td>
+            <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedVariance() }}</td>
+          </tr>
+
+          <tr>
+            <td>Desviacion estandar</td>
+            <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedStandardDeviation() }}</td>
+            <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedStandardDeviation() }}</td>
+          </tr>
+
+          <tr>
+            <td>Coeficiente de variacion</td>
+            <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedCoefficientOfVariation() }}</td>
+            <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedCoefficientOfVariation() }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
