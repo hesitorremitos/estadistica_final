@@ -36,7 +36,7 @@
         <tbody>
 
           <tr v-for="(value, key) in frequencyTable.i" :key="key">
-            <td>{{ value }}</td>
+            <th scope="row">{{ value }}</th>
             <td> {{ frequencyTable.li_1[key] }} - {{ frequencyTable.li[key] }}</td>
             <td> {{ frequencyTable.x[key] }}</td>
             <td> {{ frequencyTable.fi[key] }}</td>
@@ -58,49 +58,54 @@
   <div id="histograma"></div>
 
   <div v-if="frequencyTable">
-    <table>
-      <tr>
-        <th>Tipo de media</th>
-        <th>Clasificados</th>
-        <th>No Clasificados</th>
-      </tr>
-      <tr>
-        <td>Media</td>
-        <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedMean() }}</td>
-        <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedMean() }}</td>
-
-      </tr>
-      <tr>
-        <td>Media Geometrica</td>
-        <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedGeometricMean() }}</td>
-        <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedGeometricMean() }}</td>
-      </tr>
-
-      <tr>
-        <td>Media Armonica</td>
-        <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedHarmonicMean() }}</td>
-        <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedHarmonicMean() }}</td>
-      </tr>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Tipo de media</th>
+          <th>Clasificados</th>
+          <th>No Clasificados</th>
+        </tr>
+      </thead>
+      <tbody>
 
 
-      <tr>
-        <td>Media Cuadratica</td>
-        <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedQuadraticMean() }}</td>
-        <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedQuadraticMean() }}</td>
-      </tr>
+        <tr>
+          <td>Media</td>
+          <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedMean() }}</td>
+          <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedMean() }}</td>
 
-      <tr>
-        <td>Mediana</td>
-        <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedMedian() }}</td>
-        <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedMedian() }}</td>
-      </tr>
+        </tr>
+        <tr>
+          <td>Media Geometrica</td>
+          <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedGeometricMean() }}</td>
+          <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedGeometricMean() }}</td>
+        </tr>
 
-      <tr>
-        <td>Moda</td>
-        <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedMode() }}</td>
-        <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedMode() }}</td>
-      </tr>
+        <tr>
+          <td>Media Armonica</td>
+          <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedHarmonicMean() }}</td>
+          <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedHarmonicMean() }}</td>
+        </tr>
 
+
+        <tr>
+          <td>Media Cuadratica</td>
+          <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedQuadraticMean() }}</td>
+          <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedQuadraticMean() }}</td>
+        </tr>
+
+        <tr>
+          <td>Mediana</td>
+          <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedMedian() }}</td>
+          <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedMedian() }}</td>
+        </tr>
+
+        <tr>
+          <td>Moda</td>
+          <td v-if="frequencyTable"> {{ frequencyTable.calculateClassifiedMode() }}</td>
+          <td v-if="frequencyTable"> {{ frequencyTable.calculateUnclassifiedMode() }}</td>
+        </tr>
+      </tbody>
 
     </table>
   </div>
