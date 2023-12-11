@@ -1,4 +1,5 @@
 <template>
+  <h1>Estadistica y probabilidades</h1>
   <div>
 
     <label for="dataInput">Ingrese los datos (separados por espacios):</label>
@@ -181,7 +182,8 @@ const generateFrequencyTable = () => {
 
   var layout = {
     height: 400,
-    width: 500
+    width: 500,
+    title: 'Grafico de torta',
   };
 
   Plotly.newPlot('container', data, layout);
